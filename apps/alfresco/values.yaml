@@ -1,0 +1,36 @@
+database:
+  type: postgresql
+  postgresql:
+    enabled: true
+    postgresqlPassword: alfresco
+    postgresqlDatabase: alfresco
+
+alfresco:
+  repository:
+    admin:
+      password: admin
+    database:
+      host: postgresql
+      password: alfresco
+      name: alfresco
+
+  contentStore:
+    path: /var/lib/alfresco/contentstore
+
+  transform:
+    enabled: true
+
+  search:
+    solr:
+      host: solr
+      port: 8983
+
+extraVolumes:
+  - name: alfresco-config
+    configMap:
+      name: alfresco-config
+      
+extraVolumeMounts:
+  - name: alfresco-config
+    mountPath: /usr/local/tomcat/shared/classes/alfresco-global.properties
+    subPath: alfresco-global.properties

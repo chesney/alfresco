@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: alfresco-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: alfresco
+            repoURL: https://github.com/alfresco/alfresco-helm-charts
+            chart: alfresco-content-services
+          - name: postgresql
+            repoURL: https://charts.bitnami.com/bitnami
+            chart: postgresql
+  template:
+    metadata:
+      name: '{{name}}-app'
+    spec:
+      project: default
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: main
+        chart: '{{chart}}'
+        helm:
+          valuesFiles:
+            - apps/{{name}}/values.yaml
+      destination:
+        namespace: alfresco
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false

@@ -1,0 +1,29 @@
+global:
+  postgresql:
+    postgresqlPostgresPassword: alfresco  # The password for the default postgres user (optional)
+    
+replica:
+  enabled: false  # Set to true if you want to use PostgreSQL replication
+
+postgresql:
+  enabled: true
+  postgresqlUsername: alfresco  # Set the username for the Alfresco database
+  postgresqlPassword: alfresco  # Password for the Alfresco database user
+  postgresqlDatabase: alfresco  # Name of the database to create
+  persistence:
+    enabled: true
+    storageClass: standard  # Change this to your cluster's storage class if necessary
+    accessModes:
+      - ReadWriteOnce  # Adjust based on your requirements
+    size: 10Gi  # Specify the size of the PVC
+
+# Optionally, configure service settings
+service:
+  enabled: true
+  type: ClusterIP  # Change to NodePort if needed for external access
+  port: 5432
+
+# Optional: Configure any additional parameters or settings
+initdb:
+  initdbArgs: # Optional parameters to pass during database initialization
+    - "--data-checksums"
