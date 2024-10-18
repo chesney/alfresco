@@ -4,6 +4,12 @@ metadata:
   name: alfresco-applicationset
   namespace: argocd
 spec:
+  generators:
+    - list:
+        elements:
+          - cluster: default  # Default cluster information
+            url: https://kubernetes.default.svc
+            name: alfresco  # Name of your application
   template:
     metadata:
       name: alfresco
