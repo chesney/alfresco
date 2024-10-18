@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/chesney/alfresco  # Replace with your Git repository URL
     targetRevision: main        # Replace with the branch/tag you want to use
-    path: .               # Path to the directory containing your ApplicationSet
+    path: apps/argocd-alfresco               # Path to the directory containing your ApplicationSet
   destination:
     namespace: argocd          # Namespace where the ApplicationSet will be created
     server: https://kubernetes.default.svc
