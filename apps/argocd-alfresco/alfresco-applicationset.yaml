@@ -7,6 +7,7 @@ spec:
   template:
     metadata:
       name: alfresco
+      namespace: alfresco  # Specify the namespace for the Alfresco application
     spec:
       project: default
       source:
@@ -15,7 +16,7 @@ spec:
         version: 3.0.1
         helm:
           valuesFiles:
-            - ../apps/alfresco/alfresco.yaml
+            - ../apps/alfresco/alfresco.yaml  # Path to your values.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: alfresco
