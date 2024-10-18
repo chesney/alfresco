@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: <your-repo-url>  # Replace with your Git repository URL
+    repoURL: https://github.com/chesney/alfresco  # Replace with your Git repository URL
     targetRevision: main        # Replace with the branch/tag you want to use
-    path: argocd               # Path to the directory containing your ApplicationSet
+    path: .               # Path to the directory containing your ApplicationSet
   destination:
     namespace: argocd          # Namespace where the ApplicationSet will be created
     server: https://kubernetes.default.svc
