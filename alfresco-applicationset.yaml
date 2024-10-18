@@ -9,7 +9,8 @@ spec:
         elements:
           - name: alfresco
             repoURL: https://github.com/alfresco/alfresco-helm-charts
-            chart: alfresco-content-services
+            chart: alfresco-content-services-community
+            version: 3.0.1
           - name: postgresql
             repoURL: https://charts.bitnami.com/bitnami
             chart: postgresql
