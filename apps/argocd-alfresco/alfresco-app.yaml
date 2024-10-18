@@ -12,7 +12,4 @@ spec:
   destination:
     namespace: argocd          # Namespace where the ApplicationSet will be created
     server: https://kubernetes.default.svc
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  syncPolicy: {}
