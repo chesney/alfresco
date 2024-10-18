@@ -34,3 +34,10 @@ extraVolumeMounts:
   - name: alfresco-config
     mountPath: /usr/local/tomcat/shared/classes/alfresco-global.properties
     subPath: alfresco-global.properties
+
+
+# Alfresco global properties
+alfrescoGlobalProperties:
+  dir.root: /var/lib/alfresco/contentstore
+  db.driver: org.postgresql.Driver
+  db.url: jdbc:postgresql://postgresql:5432/alfresco

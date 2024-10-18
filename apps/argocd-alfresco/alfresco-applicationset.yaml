@@ -15,7 +15,7 @@ spec:
         version: 3.0.1
         helm:
           valuesFiles:
-            - apps/alfresco.yaml
+            - ../apps/alfresco/alfresco.yaml
       destination:
         server: https://kubernetes.default.svc
         namespace: alfresco
